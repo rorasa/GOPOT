@@ -6,11 +6,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem } from 'reactstrap';
+    NavLink} from 'reactstrap';
 
 class NavigationBar extends Component {
     constructor(props){
@@ -28,8 +24,31 @@ class NavigationBar extends Component {
     }
 
     render(){
+        let country_button;
+        if(typeof(this.props.country_code)!="undefined"){
+            country_button = <NavLink href="/country-list">Country: {this.props.country_code}</NavLink>
+        }else{
+            country_button = null
+        }
+
         return (
-            <div>Navbar</div>
+            <div>
+                <Navbar color="light" light expand="md">
+                    <NavbarBrand href="/">GOPOT</NavbarBrand>
+                    <NavbarToggler onClick={this.toggle}/>
+                    {country_button}
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className="ml-auto" navbar>
+                            <NavItem>
+                                <NavLink href="/about">About GOPOT</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="/logout">Logout</NavLink>
+                            </NavItem>
+                        </Nav>
+                    </Collapse>
+                </Navbar>
+            </div>
         )
     }
 }
