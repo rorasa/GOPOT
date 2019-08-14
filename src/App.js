@@ -4,6 +4,7 @@ import { Button } from 'reactstrap';
 import './App.css';
 
 import NavigationBar from './Navbar';
+import Dashboard from './DashboardPage';
 
 let Home = ()=>{
   return (
@@ -15,17 +16,6 @@ let Home = ()=>{
 
 let Login = ()=>{
   return <div>Login</div>
-}
-
-let Dashboard =  ({match})=>{
-  let country_code = match.params.countrycode;
-  return (
-    <div>
-      <NavigationBar country_code={country_code}/>
-      Dashboard<br/>
-      Country: {country_code}  
-    </div>
-  )
 }
 
 let Commodity = ()=>{
