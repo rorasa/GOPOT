@@ -1,25 +1,57 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { Button } from 'reactstrap';
 import './App.css';
+
+import NavigationBar from './Navbar';
+
+let Home = ()=>{
+  return (
+    <div>
+      <NavigationBar/>
+    </div>
+  )
+}
+
+let Login = ()=>{
+  return <div>Login</div>
+}
+
+let Dashboard =  ()=>{
+  return <div>Dashboard</div>
+}
+
+let Commodity = ()=>{
+  return <div>Commodity</div>
+}
+
+let CommodityStats = ()=>{
+  return <div>CommodityStats</div>
+}
+
+let About = ()=>{
+  return <div>About</div>
+}
+
+let FourOhFour = ()=>{
+  return <div>404</div>
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/login/" component={Login} />
+          <Route path="/dashboard/" component={Dashboard} />
+          <Route path="/commodity/" component={Commodity} />
+          <Route path="/stats/" component={CommodityStats} />
+          <Route path="/about/" component={About} />
+          <Route component={FourOhFour} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
