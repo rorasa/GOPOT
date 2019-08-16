@@ -13,6 +13,72 @@ import NavigationBar from './Navbar';
 import RadarChart from './RadarChart';
 import LineChart from './LineChart';
 
+const MainPane = (props)=> {
+    return(
+        <div className="Pane">
+            <div className="Panel">
+                <h3>GOPOT Factor</h3>
+                <div className="ChartAxis">
+                    <RadarChart data={props.radar_data}/>   
+                </div>
+            </div>
+            <div className="Panel">
+                <h3>GOPOT Score History</h3>
+                <div className="ChartAxis">
+                    <LineChart data={props.line_data}/>
+                </div>
+            </div>
+            <div className="Panel"> 
+                <h3>Available Trade Agreements</h3>
+                <ul>
+                    <li>Agreement 1</li>
+                    <li>Agreement 2</li>
+                    <li>Agreement 3</li>
+                    <li>Agreement 4</li>
+                </ul>
+            </div>
+        </div>
+    );
+}
+
+const SidePane = (props) =>{
+    return( 
+        <div className="Panel">
+            <h4>Other opportunities</h4>
+            Item 1<br/>
+            Item 2<br/>
+            Item 3<br/>
+            Item 4<br/>
+            Item 5<br/>
+            Item 6<br/>
+        </div>
+    );
+}
+
+const HeaderScore = (props)=>{
+    return(
+        <div className="HeaderScore">
+            <div className="HeaderScoreHead">
+                GOPOT Score
+            </div>
+            <div className="HeaderScoreScore">
+                100
+            </div>
+        </div>
+    );
+}
+
+const Header = (props) =>{
+    return(
+        <div className="Header">
+            <div className="HeaderTitle">
+                Commodity Name
+            </div>
+            <HeaderScore/>
+        </div>
+    );
+}
+
 class CommodityPage extends Component{
     constructor(props){
         super(props);
@@ -45,26 +111,14 @@ class CommodityPage extends Component{
             
                 <Container>
                     <Row>
+                        <Header/>
+                    </Row>
+                    <Row>
                         <Col xs="12" md="9">
-                            <div className="ChartAxis">
-                                <h3>GOPOT Factor</h3>
-                                <RadarChart data={characterData}/>   
-                            </div>
-                            <div className="ChartAxis">
-                                <h3>GOPOT Score History</h3>
-                                <LineChart data={historic_data}/>
-                            </div>
+                            <MainPane radar_data={characterData} line_data={historic_data}/>
                         </Col>
                         <Col xs="12" md="3">
-                            <div>
-                                <h4>Other opportunities</h4>
-                            </div>
-                            Item 1<br/>
-                            Item 2<br/>
-                            Item 3<br/>
-                            Item 4<br/>
-                            Item 5<br/>
-                            Item 6<br/>
+                            <SidePane/>
                         </Col>
                     </Row>
                 </Container>
