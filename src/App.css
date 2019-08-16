@@ -16,7 +16,8 @@
 }
 
 .CardScoreBox{
-  background-color: #c2c2c2;
+  background-color: darkolivegreen;
+  color: white;
   position: absolute;
   right: 0;
   top: 0;
@@ -28,4 +29,49 @@
   font-size: 1.5em;
   margin: 0 auto;
   margin-top: 25%;
+}
+
+.Pane{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Header{
+  width: 100%;
+  display: flex;
+  direction: column;
+  justify-content: space-between;
+}
+
+.HeaderTitle{
+  font-size: 1.8em;
+  /* display: inline-flex; */
+}
+
+.HeaderScore{
+  background-color: darkolivegreen;
+  padding: 10px;
+  color: white;
+  margin-bottom: 10px;
+}
+.HeaderScoreHead{
+  font-size: 1em;
+}
+.HeaderScoreScore{
+  font-size: 1.8em;
+}
+
+
+.Panel{
+  width: 100%;
+  text-align:left;
+  margin-top: 20px;
+  border-bottom: solid;
+  border-bottom-width: 1px;
+}
+
+.ChartAxis {
+  max-width: 50vh;
+  margin: 0 auto;
 }
