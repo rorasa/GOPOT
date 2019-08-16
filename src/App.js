@@ -7,14 +7,11 @@ import NavigationBar from './Navbar';
 import Dashboard from './DashboardPage';
 import CommodityPage from './CommodityPage';
 import LoginPage from './LoginPage';
+import LandingPage from './LandingPage';
 
 let Home = ()=>{
   return (
-    <div>
-      <NavigationBar/>
-      <h1>GOPOT</h1>
-      <a href="/login">Login</a><br/>
-    </div>
+    <LandingPage/>
   )
 }
 
