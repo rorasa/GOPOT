@@ -9,6 +9,7 @@ import {
     CardImg,
     CardBody
 } from 'reactstrap';
+import { withCookies } from 'react-cookie';
 
 import NavigationBar from './Navbar';
 import RadarChart from './RadarChart';
@@ -49,28 +50,33 @@ class Dashboard extends Component{
     }
 
     render(){
-        return(
-            <div>
-                <NavigationBar country_code={this.state.country_code}/>
-                
-                <Container>
-                    <Row>
-                        <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                    </Row>
-                    <Row className="GridRow">
-                        <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
-                    </Row>
-                </Container>
 
-            </div>
-        )
+        if(typeof(this.props.cookies.get('auth_username'))=="undefined"){
+            window.location="/login"
+        }else{
+            return(
+                <div>
+                    <NavigationBar country_code={this.state.country_code}/>
+                    
+                    <Container>
+                        <Row>
+                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
+                        </Row>
+                        <Row className="GridRow">
+                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
+                        </Row>
+                    </Container>
+    
+                </div>
+            )
+        }
     }
 }
 
-export default Dashboard;
+export default withCookies(Dashboard);

@@ -9,6 +9,8 @@ import {
     CardText,
     CardImg
 } from 'reactstrap';
+import { withCookies } from 'react-cookie';
+
 import NavigationBar from './Navbar';
 import RadarChart from './RadarChart';
 import LineChart from './LineChart';
@@ -105,26 +107,30 @@ class CommodityPage extends Component{
         { x: 5, y: 5 }
         ];
 
-        return(
-            <div>
-                <NavigationBar country_code={this.state.country_code}/>
-            
-                <Container>
-                    <Row>
-                        <Header/>
-                    </Row>
-                    <Row>
-                        <Col xs="12" md="9">
-                            <MainPane radar_data={characterData} line_data={historic_data}/>
-                        </Col>
-                        <Col xs="12" md="3">
-                            <SidePane/>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-        );
+        if(typeof(this.props.cookies.get('auth_username'))=="undefined"){
+            window.location="/login"
+        }else{
+            return(
+                <div>
+                    <NavigationBar country_code={this.state.country_code}/>
+                
+                    <Container>
+                        <Row>
+                            <Header/>
+                        </Row>
+                        <Row>
+                            <Col xs="12" md="9">
+                                <MainPane radar_data={characterData} line_data={historic_data}/>
+                            </Col>
+                            <Col xs="12" md="3">
+                                <SidePane/>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+            );
+        }
     }
 }
 
-export default CommodityPage;
+export default withCookies(CommodityPage);
