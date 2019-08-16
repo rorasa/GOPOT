@@ -10,6 +10,9 @@ let Home = ()=>{
   return (
     <div>
       <NavigationBar/>
+      <h1>GOPOT</h1>
+      <a href="/login">Login</a><br/>
+      <a href="/dashboard/us">Dashboard</a>
     </div>
   )
 }
