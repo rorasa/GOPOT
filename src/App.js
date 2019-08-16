@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { Button } from 'reactstrap';
 import './App.css';
 
 import NavigationBar from './Navbar';
 import Dashboard from './DashboardPage';
+import CommodityPage from './CommodityPage';
 
 let Home = ()=>{
   return (
@@ -16,10 +16,6 @@ let Home = ()=>{
 
 let Login = ()=>{
   return <div>Login</div>
-}
-
-let Commodity = ()=>{
-  return <div>Commodity</div>
 }
 
 let CommodityStats = ()=>{
@@ -39,12 +35,6 @@ class App extends Component {
     super(props);
   }
 
-  setCountryCode = (country_code)=>{
-    this.setState({
-      country_code: country_code
-    });
-  }
-
   render(){
     return (
       <Router>
@@ -53,7 +43,7 @@ class App extends Component {
             <Route path="/" exact component={Home} />
             <Route path="/login/" component={Login} />
             <Route path={"/dashboard/:countrycode"} component={Dashboard} />
-            <Route path="/commodity/" component={Commodity} />
+            <Route path="/commodity/:countrycode/:commoditycode" component={CommodityPage} />
             <Route path="/stats/" component={CommodityStats} />
             <Route path="/about/" component={About} />
             <Route component={FourOhFour} />

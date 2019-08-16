@@ -5,14 +5,11 @@ import {
     Col,
     Card,
     CardTitle,
+    CardBody,
     CardText,
-    CardImg,
-    CardBody
+    CardImg
 } from 'reactstrap';
-// import * as Victory from 'victory';
-import { VictoryPolarAxis, VictoryChart, VictoryGroup, VictoryArea, VictoryLabel, VictoryTheme } from 'victory';
-import radarchart from './assets/radarchart_placeholder.png'
-
+import { VictoryPolarAxis, VictoryLine, VictoryChart, VictoryGroup, VictoryArea, VictoryLabel, VictoryTheme } from 'victory';
 import NavigationBar from './Navbar';
 
 class RadarChart extends Component{
@@ -100,32 +97,43 @@ class RadarChart extends Component{
     
 }
 
-class CommodityCard extends Component{
-    render(){
+class DummyBarChart extends Component{
+    constructor(props){
+        super(props);
         
+        const data = [
+            { x: 0, y: 0 },
+            { x: 1, y: 2 },
+            { x: 2, y: 1 },
+            { x: 3, y: 4 },
+            { x: 4, y: 3 },
+            { x: 5, y: 5 }
+          ];
+
+        this.state = {
+            data: data
+          };
+    }
+
+    render(){
         return(
-            <Card onClick={()=>{window.location="/commodity/us/10000"}}>
-                <CardBody>
-                    <CardTitle className="CardTitle">Commodity</CardTitle>
-                    <div className="CardScoreBox">
-                        <div className="Score">
-                            100
-                        </div>
-                    </div>
-                </CardBody>
-                <RadarChart/>
-            </Card>
+            <VictoryChart polar={this.state.polar} height={390}>
+                <VictoryLine
+                    interpolation="linear" data={this.state.data}
+                    style={{ data: { stroke: "#c43a31" } }}
+                />
+            </VictoryChart>
         )
     }
 }
-{/* <CardImg top width="90%" src={radarchart}></CardImg>   */}
 
-class Dashboard extends Component{
+class CommodityPage extends Component{
     constructor(props){
         super(props);
 
         this.state = {
-            country_code: props.match.params.countrycode
+            country_code : props.match.params.countrycode,
+            commodity_code: props.match.params.commoditycode
         };
     }
 
@@ -133,25 +141,35 @@ class Dashboard extends Component{
         return(
             <div>
                 <NavigationBar country_code={this.state.country_code}/>
-                
+            
                 <Container>
                     <Row>
-                        <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                    </Row>
-                    <Row className="GridRow">
-                        <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
-                        <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
+                        <Col xs="12" md="9">
+                            <div className="ChartAxis">
+                                <h3>GOPOT Factor</h3>
+                                <RadarChart/>   
+                            </div>
+                            <div className="ChartAxis">
+                                <h3>GOPOT Score History</h3>
+                                <DummyBarChart/>   
+                            </div>
+                        </Col>
+                        <Col xs="12" md="3">
+                            <div>
+                                <h4>Other opportunities</h4>
+                            </div>
+                            Item 1<br/>
+                            Item 2<br/>
+                            Item 3<br/>
+                            Item 4<br/>
+                            Item 5<br/>
+                            Item 6<br/>
+                        </Col>
                     </Row>
                 </Container>
-
             </div>
-        )
+        );
     }
 }
 
-export default Dashboard;
+export default CommodityPage;

@@ -29,3 +29,9 @@
   margin: 0 auto;
   margin-top: 25%;
 }
+
+.ChartAxis {
+  width: 80%;
+  max-width: 50vh;
+  margin: 0 auto;
+}
