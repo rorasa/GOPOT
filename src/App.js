@@ -9,6 +9,7 @@ import CommodityPage from './CommodityPage';
 import LoginPage from './LoginPage';
 import LandingPage from './LandingPage';
 import CountryPage from './CountryPage';
+import AboutPage from './AboutPage';
 
 let Home = ()=>{
   return (
@@ -18,10 +19,6 @@ let Home = ()=>{
 
 let CommodityStats = ()=>{
   return <div>CommodityStats</div>
-}
-
-let About = ()=>{
-  return <div>About</div>
 }
 
 let FourOhFour = ()=>{
@@ -55,7 +52,7 @@ class App extends Component {
             <Route path="/commodity/:countrycode/:commoditycode" component={CommodityPage} />
             <Route path="/country-list/" component={CountryPage}/>
             <Route path="/stats/" component={CommodityStats} />
-            <Route path="/about/" component={About} />
+            <Route path="/about/" component={AboutPage} />
             <Route component={FourOhFour} />
           </Switch>
         </div>
