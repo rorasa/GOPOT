@@ -59,8 +59,14 @@
   /* display: inline-flex; */
 }
 
-.HeaderScore{
+.HeaderScoreGreen{
   background-color: darkolivegreen;
+  padding: 10px;
+  color: white;
+  margin-bottom: 10px;
+}
+.HeaderScoreRed{
+  background-color: maroon;
   padding: 10px;
   color: white;
   margin-bottom: 10px;
@@ -91,4 +97,8 @@
   margin: 0 auto;
   margin-top: 50px;
   text-align: left;
+}
+
+.Tooltip {
+  font-size: 0.8em;
 }
