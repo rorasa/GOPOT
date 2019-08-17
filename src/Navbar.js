@@ -9,6 +9,8 @@ import {
     NavLink} from 'reactstrap';
 import { withCookies } from 'react-cookie';
 
+import country_list from './country_list';
+
 class NavigationBar extends Component {
     constructor(props){
         super(props);
@@ -35,7 +37,13 @@ class NavigationBar extends Component {
     render(){
         let country_button = null;
         if(typeof(this.props.country_code)!="undefined"){
-            country_button = <NavLink href="/country-list">Country: {this.props.country_code}</NavLink>
+            let country = country_list.filter((c)=>{
+                return c.code.toLowerCase() == this.props.country_code
+            })[0]
+
+            country_button = (<NavLink href="/country-list">
+                {country.name} ({country.code})
+                </NavLink>)
         }
         let username = this.props.cookies.get('auth_username');
         let logout_button = null;

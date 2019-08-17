@@ -13,6 +13,7 @@ import { withCookies } from 'react-cookie';
 
 import NavigationBar from './Navbar';
 import RadarChart from './RadarChart';
+import country_list from './country_list';
 
 class CommodityCard extends Component{
     render(){
@@ -24,7 +25,7 @@ class CommodityCard extends Component{
         ];
         
         return(
-            <Card onClick={()=>{window.location="/commodity/us/10000"}}>
+            <Card onClick={()=>{window.location="/commodity/"+this.props.country_code+"/10000"}}>
                 <CardBody>
                     <CardTitle className="CardTitle">Commodity</CardTitle>
                     <div className="CardScoreBox">
@@ -54,22 +55,28 @@ class Dashboard extends Component{
         if(typeof(this.props.cookies.get('auth_username'))=="undefined"){
             window.location="/login"
         }else{
+            let country = country_list.filter((c)=>{
+                return c.code.toLowerCase()==this.state.country_code
+            })[0]
+
             return(
                 <div>
                     <NavigationBar country_code={this.state.country_code}/>
+
+                    <h2>{country.name}</h2>
                     
                     <Container>
                         <Row>
-                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
-                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard country_code={this.state.country_code}/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard country_code={this.state.country_code}/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard country_code={this.state.country_code}/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell" ><CommodityCard country_code={this.state.country_code}/></Col>
                         </Row>
                         <Row className="GridRow">
-                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
-                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
-                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
-                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard country_code={this.state.country_code}/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard country_code={this.state.country_code}/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard country_code={this.state.country_code}/></Col>
+                            <Col xs="12" sm="6" md="3" className="GridCell"><CommodityCard country_code={this.state.country_code}/></Col>
                         </Row>
                     </Container>
     

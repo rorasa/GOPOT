@@ -8,6 +8,7 @@ import Dashboard from './DashboardPage';
 import CommodityPage from './CommodityPage';
 import LoginPage from './LoginPage';
 import LandingPage from './LandingPage';
+import CountryPage from './CountryPage';
 
 let Home = ()=>{
   return (
@@ -52,6 +53,7 @@ class App extends Component {
             <Route path="/logout" component={withCookies(LogOut)}/>
             <Route path={"/dashboard/:countrycode"} component={Dashboard} />
             <Route path="/commodity/:countrycode/:commoditycode" component={CommodityPage} />
+            <Route path="/country-list/" component={CountryPage}/>
             <Route path="/stats/" component={CommodityStats} />
             <Route path="/about/" component={About} />
             <Route component={FourOhFour} />
