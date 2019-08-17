@@ -75,3 +75,10 @@
   max-width: 50vh;
   margin: 0 auto;
 }
+
+.LoginBox {
+  max-width: 540px;
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: left;
+}
