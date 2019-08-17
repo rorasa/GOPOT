@@ -45,7 +45,7 @@ class RadarChart extends Component{
             theme={VictoryTheme.material}
             domain={{ y: [ 0, 1 ] }}
           >
-            <VictoryGroup colorScale={["gold", "orange", "tomato"]}
+            <VictoryGroup colorScale={["green", "white", "tomato"]}
               style={{ data: { fillOpacity: 0.2, strokeWidth: 2 } }}
             >
               {this.state.data.map((data, i) => {

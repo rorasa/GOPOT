@@ -93,9 +93,8 @@ class CommodityPage extends Component{
 
     render(){
         const characterData = [
-            { strength: 1, intelligence: 250, luck: 1, stealth: 40, charisma: 50 , money:5},
-            { strength: 2, intelligence: 300, luck: 2, stealth: 80, charisma: 90 , money:7},
-            { strength: 5, intelligence: 225, luck: 3, stealth: 60, charisma: 120 , money:2}
+            { Extenal: 70.2, Internal: 67.1, Strength: 41.9, Barrier: 50.2, Economy: 67.8},
+            { Extenal: 100, Internal: 100, Strength: 100, Barrier: 100, Economy: 100}
           ];
 
         const historic_data = [
