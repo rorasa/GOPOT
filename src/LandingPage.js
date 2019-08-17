@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import {
+    Container,
+    Row,
+    Col
+} from 'reactstrap';
 import { withCookies } from 'react-cookie';
 
 import NavigationBar from './Navbar';
@@ -10,9 +15,14 @@ class LandingPage extends Component{
             return(
                 <div>
                     <NavigationBar/>
-                    <h2><strong>G</strong>lobally-indentified<br/>
-                     <strong>O</strong>ptimal <strong>P</strong>olicies for <strong>O</strong>peration of <strong>T</strong>rades</h2>
-                    <a href="/login">Login</a><br/>
+                    <div className="LandingBanner">
+                        <div className="LandingTitle">
+                            <h1><strong>G</strong>lobally-indentified<br/>
+                            <strong>O</strong>ptimal <strong>P</strong>olicies for <strong>O</strong>peration of <strong>T</strong>rades</h1>
+                            <p></p><p></p>
+                            <a href="/login" className="LandingLogin">Login</a><br/>
+                        </div>
+                    </div>
                 </div>
             );
         }else{
