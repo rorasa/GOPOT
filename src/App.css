@@ -15,7 +15,7 @@
   width: 75%;
 }
 
-.CardScoreBox{
+.CardScoreBoxGreen{
   background-color: darkolivegreen;
   color: white;
   position: absolute;
@@ -25,7 +25,17 @@
   height: 20%;
 }
 
-.CardScoreBox .Score{
+.CardScoreBoxRed{
+  background-color: maroon;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 28%;
+  height: 20%;
+}
+
+.CardScoreBoxScore{
   font-size: 1.5em;
   margin: 0 auto;
   margin-top: 25%;

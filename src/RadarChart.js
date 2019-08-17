@@ -40,12 +40,19 @@ class RadarChart extends Component{
     }
 
     render() {
+        let chartcolor
+        if(this.props.isGood){
+          chartcolor = "green";
+        }else{
+          chartcolor = "red"
+        }
+
         return (
           <VictoryChart polar
             theme={VictoryTheme.material}
             domain={{ y: [ 0, 1 ] }}
           >
-            <VictoryGroup colorScale={["green", "white", "tomato"]}
+            <VictoryGroup colorScale={[chartcolor, "white", "tomato"]}
               style={{ data: { fillOpacity: 0.2, strokeWidth: 2 } }}
             >
               {this.state.data.map((data, i) => {
