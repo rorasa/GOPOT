@@ -57,7 +57,7 @@ class Dashboard extends Component{
         .then((res)=>{
             res.json().then((response)=>{
                 this.setState({
-                    commodities: response.commodities.concat(response.commodities),
+                    commodities: response.commodities,
                     isLoaded: true
                 });
             })
@@ -85,7 +85,7 @@ class Dashboard extends Component{
                     let cols = []
                     cols.push(row_comms.map((comm, idx)=>{
                         return (<Col xs="12" sm="6" md="3" className="GridCell" key={idx}>
-                                <CommodityCard country_code={this.state.country_code} name={comm.commodity_code} commodity={comm}/>
+                                <CommodityCard country_code={this.state.country_code} name={comm.name} commodity={comm}/>
                             </Col>);
                     }));
 

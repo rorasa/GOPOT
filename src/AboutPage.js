@@ -8,7 +8,7 @@ class AboutPage extends Component{
             <div>
                 <NavigationBar/>
 
-                <h2><strong>G</strong>lobally-indentified<br/>
+                <h2><strong>G</strong>lobally-identified<br/>
                 <strong>O</strong>ptimal <strong>P</strong>olicies for <strong>O</strong>peration of <strong>T</strong>rades</h2>
 
                 <p>

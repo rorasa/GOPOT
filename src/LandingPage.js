@@ -17,7 +17,7 @@ class LandingPage extends Component{
                     <NavigationBar/>
                     <div className="LandingBanner">
                         <div className="LandingTitle">
-                            <h1><strong>G</strong>lobally-indentified<br/>
+                            <h1><strong>G</strong>lobally-identified<br/>
                             <strong>O</strong>ptimal <strong>P</strong>olicies for <strong>O</strong>peration of <strong>T</strong>rades</h1>
                             <p></p><p></p>
                             <a href="/login" className="LandingLogin">Login</a><br/>

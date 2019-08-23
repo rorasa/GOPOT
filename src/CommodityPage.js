@@ -110,7 +110,7 @@ class CommodityPage extends Component{
         .then((res)=>{
             res.json().then((response)=>{
                 this.setState({
-                    commodities: response.commodities.concat(response.commodities),
+                    commodities: response.commodities,
                     isLoaded: true
                 });
             })
